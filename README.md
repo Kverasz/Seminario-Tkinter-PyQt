@@ -109,6 +109,21 @@ Para o futuro, ambas podem ser usadas em cenários avançados de desenvolvimento
 
 ---
 
+## 7. Referências:
+
+- NASCIMENTO, ANDERSON. O que é GUI? Canaltech. 01 set. 2014. Disponível em: https://canaltech.com.br/produtos/O-que-e-GUI/. Acesso em: 21 out. 2025. Canaltech
+
+- POZO RAMOS, LEODANIS. Python and PyQt: Building a GUI Desktop Calculator. Real Python. Disponível em: https://realpython.com/python-pyqt-gui-calculator/. Acesso em: 21 out. 2025. realpython.com
+
+- CGS, CARLOS. O que é e como Utilizar a Biblioteca Tkinter em Python. DIO. 15 maio 2024. Disponível em: https://www.dio.me/articles/o-que-e-e-como-utilizar-a-biblioteca-tkinter-em-python. Acesso em: 22 out. 2025. DIO
+
+- What Are the Benefits of Using Python for GUI Development? ParallelStaff. Disponível em: https://parallelstaff.com/benefits-of-using-python-for-gui-development/. Acesso em: 22 out. 2025.
+
+- STILEST. PyQt vs Tkinter: Comparing User Interface Libraries in Python. Medium, 22 nov. 2023. Disponível em: https://medium.com/@wepypixel/pyqt-vs-tkinter-comparing-user-interface-libraries-in-python-273a2cc84c7b. Acesso em: 23 out. 2025.
+
+
+---
+
 ## Grupo:
 - Kennedy Veras
 - Mariana Oliveira
