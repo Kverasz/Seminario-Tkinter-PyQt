@@ -82,19 +82,100 @@ Este documento apresenta uma análise comparativa dessas duas bibliotecas, desta
 
 ## 5. Exemplo de Aplicação Prática (Tkinter)
 
-A apresentação contém um exemplo prático de uma aplicação GUI desenvolvida em Tkinter, que é um jogo simples de "Adivinhe os Monstros".
+A seguir, é apresentado um exemplo prático de uma aplicação GUI (Interface Gráfica de Usuário) desenvolvida com CustomTkinter, uma versão moderna e estilizada do Tkinter.
+O exemplo demonstra a criação de um sistema simples de login com validação de usuário e senha.
 
 O código-fonte demonstra a implementação dos seguintes conceitos básicos:
 
-1.  **Importação:** `import tkinter as tk` e `from tkinter import messagebox`.
-2.  **Configuração da Janela Raiz:** Criação (`root = tk.Tk()`), título, tamanho (`root.geometry`) e cor de fundo (`root.config`).
-3.  **Widgets:** Uso de `Label` (títulos e dicas), `Entry` (campo de resposta) e `Button` (botões de ação).
-4.  **Associação de Eventos:** O botão é associado a funções Python (o `command=`) para realizar ações, como `escolher_monstro` e `verificar_resposta`.
-5.  **Loop Principal:** `root.mainloop()` para manter a janela aberta e responsiva a eventos.
+1.  **Importação:** `import customtkinter as ctk`.
+2.  **Aparência e Janela Principal:** Modo escuro (`ctk.set_appearance_mode('dark')`), janela principal (`app = ctk.CTk()`), define titulo (`app.title()`) e o tamanho (`app.geometry())`).
+3.  **Widgets:** Uso de `CTkLabel` (exibe textos fixos como “Usuário” e “Senha”), `CTkEntry` (campos de entrada para digitação), `CTkButton` (botão de ação “Login”) e outro `CTkLabel` (exibe mensagens de resultado [sucesso ou erro]).
+4.  **Associação de Eventos:** O botão Login está vinculado à função (`validar_login`) por meio do parâmetro (`command`). Essa função captura os valores digitados e verifica se o usuário e senha estão corretos, atualizando a mensagem de feedback na tela.
+5.  **Loop Principal:** A chamada `app.mainloop()` mantém a janela aberta e responsiva aos eventos (cliques e digitação), garantindo a execução contínua da aplicação.
 
 ---
 
-## 6. Perspectivas Futuras
+## 6. Exemplo de Aplicação Prática (PyQt5)
+
+A seguir, é apresentado um exemplo prático de uma aplicação GUI (Interface Gráfica de Usuário) desenvolvida com PyQt5, que implementa um Bloco de Notas simples, permitindo abrir, editar e salvar arquivos de texto.
+
+O código-fonte demonstra a implementação dos seguintes conceitos básicos:
+
+1.  **Importação:** `import sys`, `from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QTextEdit, QAction, QFileDialog, QMessageBox
+)`, `from PyQt5.QtGui import QIcon`.
+2.  **Criação da Janela Principal:** A classe `BlocoDeNotas` herda de `QMainWindow`, a janela principal típica de aplicações desktop.
+`class BlocoDeNotas(QMainWindow):`
+
+```
+     def __init__(self):
+        super().__init__()
+
+        self.texto = QTextEdit()
+        self.setCentralWidget(self.texto)
+
+        self.setWindowTitle("Bloco de Notas - PyQt5")
+        self.setGeometry(200, 200, 600, 400)
+
+        self.criar_menu()
+
+```
+
+* Define o título, tamanho e posição da janela.
+* O `QTextEdit` é usado como área central de texto.
+* O método `criar_menu()` monta a barra de menus.
+
+4.  **Widgets:** O método `criar_menu()` adiciona menus e ações à aplicação:
+
+```
+
+menu_bar = self.menuBar()
+menu_arquivo = menu_bar.addMenu("Arquivo")
+
+abrir_acao = QAction("Abrir", self)
+abrir_acao.triggered.connect(self.abrir_arquivo)
+menu_arquivo.addAction(abrir_acao)
+
+```
+
+* Cada item do menu é uma instância de `QAction`, que se conecta a uma função Python (ex: `abrir_arquivo`, `salvar_arquivo`, `close`).
+4.  **Associação de Eventos:** As ações são vinculadas a métodos específicos que executam operações:
+* Abrir arquivo: usa `QFileDialog.getOpenFileName()` para selecionar e carregar o conteúdo.
+* Salvar arquivo: usa `QFileDialog.getSaveFileName()` para gravar o texto atual.
+* Sobre: exibe uma caixa de diálogo `QMessageBox.information()` com informações do app.
+
+```
+
+def mostrar_sobre(self):
+    QMessageBox.information(
+        self,
+        "Sobre",
+        "Mini Bloco de Notas feito com PyQt5\n😄"
+    `)
+
+```
+
+5.  **Loop Principal:** A execução da aplicação é iniciada com:
+
+```
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    janela = BlocoDeNotas()
+    janela.show()
+    sys.exit(app.exec_())
+
+```
+
+Essa estrutura:
+
+* Cria a instância da aplicação (`QApplication`);
+* Exibe a janela (`show()`);
+* Mantém o programa ativo até o usuário fechá-lo (`app.exec_()`).
+
+---
+
+## 7. Perspectivas Futuras
 
 Ambas as bibliotecas continuam relevantes no ecossistema Python.
 
@@ -109,7 +190,7 @@ Para o futuro, ambas podem ser usadas em cenários avançados de desenvolvimento
 
 ---
 
-## 7. Referências:
+## 8. Referências:
 
 - NASCIMENTO, ANDERSON. O que é GUI? Canaltech. 01 set. 2014. Disponível em: https://canaltech.com.br/produtos/O-que-e-GUI/. Acesso em: 21 out. 2025. Canaltech
 
